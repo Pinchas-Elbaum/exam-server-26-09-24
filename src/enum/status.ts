@@ -1,7 +1,6 @@
-export enum status {
-    manufactured,
-    assembled,
-    shipped,
-    deployed,
-    detonated
-  }
+export const status = [
+    "assembled",
+    "shipped",
+    "deployed",
+    "detonated"
+]

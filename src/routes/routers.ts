@@ -1,6 +1,6 @@
 import express from 'express';
 
-import { getAllBeepers, getBeeperDetailsById } from '../services/service';
+import { getAllBeepers, getBeeperDetailsById, createBeeper, updateBeeperStatus, deleteBeeper} from '../services/service';
 
 const router = express.Router();
 
@@ -10,11 +10,11 @@ router.get('/:id', getBeeperDetailsById)
 
 // router.get('/status/:status', getBeeperByStatus)
 
-// router.post('/', createBeeper)
+router.post('/', createBeeper)
 
-// router.put('/:id/status', updateBeeperStatus)
+router.put('/:id/status', updateBeeperStatus)
 
-// router.delete('/:id', deleteBeeper)
+router.delete('/:id', deleteBeeper)
 
 
 export default router

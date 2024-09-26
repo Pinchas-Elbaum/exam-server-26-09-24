@@ -1,7 +1,24 @@
 {
-    "data": [
-        {
-            "id": 1,
-            "name": "Beep1"}
-    ]
+  "beepers": [
+    {
+      "id": 2,
+      "name": "pini",
+      "status": "manufactured"
+    },
+    {
+      "id": 3,
+      "name": "pini",
+      "status": "manufactured"
+    },
+    {
+      "id": 4,
+      "name": "pini",
+      "status": "manufactured"
+    },
+    {
+      "id": 5,
+      "name": "pini",
+      "status": "manufactured"
+    }
+  ]
 }

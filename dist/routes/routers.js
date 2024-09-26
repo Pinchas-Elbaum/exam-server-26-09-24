@@ -9,7 +9,7 @@ const router = express_1.default.Router();
 router.get('/', service_1.getAllBeepers);
 router.get('/:id', service_1.getBeeperDetailsById);
 // router.get('/status/:status', getBeeperByStatus)
-// router.post('/', createBeeper)
-// router.put('/:id/status', updateBeeperStatus)
-// router.delete('/:id', deleteBeeper)
+router.post('/', service_1.createBeeper);
+router.put('/:id/status', service_1.updateBeeperStatus);
+router.delete('/:id', service_1.deleteBeeper);
 exports.default = router;
