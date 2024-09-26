@@ -9,14 +9,23 @@ export const getAllBeepersDal = () : beeper[] => {
 }
 
 export const getBeeperByIdDal = (id: number) => { 
-    const beepers: beeper[] = readFromFile();
-    const beeper: beeper | undefined = beepers.find((b: beeper) => b.id === id);
-    return beeper;
+    try {
+        const beepers: beeper[] = readFromFile();
+        const beeper: beeper | undefined = beepers.find((b: beeper) => b.id === id);
+        if (!beeper) {
+            throw new Error('beeper not found');
+        }
+        return beeper;
+    }
+    catch (error) {
+        console.log(error);
+    }
 }
+   
+
 
 export const createBeeperDal = (beeper: beeper) => {
     const beepers: beeper[] = readFromFile();
-    console.log(beeper);
     beepers.push(beeper);
     writeToFile(beepers);
     return beepers;
@@ -32,8 +41,16 @@ export const updateBeeperStatusDal = (beeper: beeper) : void => {
 
 
 export const deleteBeeperDal = (id: number) : void => {
-    const beepers: beeper[] = readFromFile();
-    const index: number = beepers.findIndex((b: beeper) => b.id === id);
-    beepers.splice(index, 1);
-    writeToFile(beepers);
+    try {
+        const beepers: beeper[] = readFromFile();
+        const index: number = beepers.findIndex((b: beeper) => b.id === id);
+        if (index === -1) {
+            throw new Error('beeper not found');
+        }
+        beepers.splice(index, 1);
+        writeToFile(beepers);
+    } catch (error) {
+        console.log(error);
+    }
+    
 }

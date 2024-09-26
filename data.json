@@ -1,24 +1,28 @@
 {
   "beepers": [
     {
+      "id": 1,
+      "name": "pini",
+      "status": "detonated",
+      "longitude": "35.78674",
+      "latitude": "34.59708"
+    },
+    {
       "id": 2,
       "name": "pini",
-      "status": "manufactured"
+      "status": "detonated",
+      "longitude": "35.78674",
+      "latitude": "34.59708",
+      "detonated_at": "2024-09-26T14:24:10.745Z"
     },
     {
       "id": 3,
       "name": "pini",
-      "status": "manufactured"
-    },
-    {
-      "id": 4,
-      "name": "pini",
-      "status": "manufactured"
-    },
-    {
-      "id": 5,
-      "name": "pini",
-      "status": "manufactured"
+      "status": "detonated",
+      "created_at": "2024-09-26T14:25:07.087Z",
+      "longitude": "35.78674",
+      "latitude": "34.59708",
+      "detonated_at": "2024-09-26T14:25:27.012Z"
     }
   ]
 }
