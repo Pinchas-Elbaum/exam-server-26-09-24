@@ -23,6 +23,42 @@
       "longitude": "35.78674",
       "latitude": "34.59708",
       "detonated_at": "2024-09-26T14:25:27.012Z"
+    },
+    {
+      "id": 4,
+      "name": "pini",
+      "status": "detonated",
+      "created_at": "2024-09-26T14:34:54.483Z",
+      "longitude": "35.78674",
+      "latitude": "34.59708",
+      "detonated_at": "2024-09-26T14:37:44.652Z"
+    },
+    {
+      "id": 5,
+      "name": "pini",
+      "status": "detonated",
+      "created_at": "2024-09-26T14:37:59.987Z",
+      "longitude": "35.78674",
+      "latitude": "34.59708",
+      "detonated_at": "2024-09-26T14:44:28.958Z"
+    },
+    {
+      "id": 6,
+      "name": "pini",
+      "status": "detonated",
+      "created_at": "2024-09-26T14:39:15.647Z",
+      "longitude": "35.78674",
+      "latitude": "34.59708",
+      "detonated_at": "2024-09-26T14:44:29.520Z"
+    },
+    {
+      "id": 7,
+      "name": "pini",
+      "status": "detonated",
+      "created_at": "2024-09-26T14:44:59.304Z",
+      "longitude": "35.78674",
+      "latitude": "34.59708",
+      "detonated_at": "2024-09-26T14:49:30.428Z"
     }
   ]
 }

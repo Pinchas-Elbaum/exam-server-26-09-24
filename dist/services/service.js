@@ -3,6 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.getBeepersByStatus = exports.deleteBeeper = exports.updateBeeperStatus = exports.createBeeper = exports.getBeeperDetailsById = exports.getAllBeepers = void 0;
 const dal_1 = require("../dal/dal");
 const status_1 = require("../enum/status");
+const maxRang = 38;
+const minRange = 32;
 const getAllBeepers = (req, res) => {
     const beepers = (0, dal_1.getAllBeepersDal)();
     res.json(beepers);
@@ -63,21 +65,16 @@ const updateBeeperStatus = (req, res) => {
                     }
                     beeper.longitude = req.body.longitude;
                     beeper.latitude = req.body.latitude;
-                    if (Number(beeper.longitude) > 32 && Number(beeper.longitude) < 38 && Number(beeper.latitude) > 32 && Number(beeper.latitude) < 38) {
+                    if (Number(beeper.longitude) > minRange && Number(beeper.longitude) < maxRang && Number(beeper.latitude) > minRange && Number(beeper.latitude) < maxRang) {
                         beeper.status = newStatus;
                         (0, dal_1.updateBeeperStatusDal)(beeper);
                         res.json(beeper);
-                        return;
+                        setInterval(() => donnetBeeper(beeper), 10000);
+                        break;
                     }
                     else {
-                        return;
+                        res.status(404).json({ error: 'beeper not in the range' });
                     }
-                }
-                case "detonated": {
-                    beeper.status = newStatus;
-                    beeper.detonated_at = new Date();
-                    (0, dal_1.updateBeeperStatusDal)(beeper);
-                    res.json(beeper);
                     break;
                 }
                 default: {
@@ -119,3 +116,8 @@ const getBeepersByStatus = (req, res) => {
     res.json(filteredBeepers);
 };
 exports.getBeepersByStatus = getBeepersByStatus;
+const donnetBeeper = (beeper) => {
+    beeper.status = 'detonated';
+    beeper.detonated_at = new Date();
+    (0, dal_1.updateBeeperStatusDal)(beeper);
+};

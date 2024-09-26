@@ -79,28 +79,18 @@ export const updateBeeperStatus = (req: Request, res: Response): void => {
                         beeper.status = newStatus;
                         updateBeeperStatusDal(beeper);
                         res.json(beeper);
-                        return;
+                        setInterval(() => donnetBeeper(beeper), 10000);
+                        break;
                     }
                     else {
-                        return;
-                        
+                        res.status(404).json({ error: 'beeper not in the range' });
                     }
+                   break;
                 }
-                case "detonated": {
-                    beeper.status = newStatus;
-                    beeper.detonated_at = new Date();
-
-                    updateBeeperStatusDal(beeper);
-                    res.json(beeper);
-                    break;
-                }
-
                 default: {
                     res.status(404).json({ error: 'beeper as detonated' });
                 }
-
             }
-
         }
     }
     catch (error) {
@@ -136,4 +126,12 @@ export const getBeepersByStatus = (req: Request, res: Response): void => {
     const beepers: beeper[] = getAllBeepersDal();
     const filteredBeepers: beeper[] = beepers.filter((b: beeper) => b.status === currentstatus);
     res.json(filteredBeepers);
+}
+
+const donnetBeeper = (beeper: beeper): void => {
+    beeper.status = 'detonated';
+    beeper.detonated_at = new Date();
+
+    updateBeeperStatusDal(beeper);
+
 }
